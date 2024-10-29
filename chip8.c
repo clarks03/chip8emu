@@ -134,7 +134,7 @@ void my_chip8_emulate_cycle(chip8 *chip) {
                 break;
 
                 case 0x0001:  // 0x8XY1: sets VX to VX or VY (bitwise)
-                    chip->V[(chip->opcode & 0x0f00) >> 8] = chip->V[(chip->opcode & 0x00f0) >> 4];
+                    chip->V[(chip->opcode & 0x0f00) >> 8] |= chip->V[(chip->opcode & 0x00f0) >> 4];
                     chip->pc += 2;
                 break;
 
